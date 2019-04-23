@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Series</title>
+    <style type="text/css">
+        table {
+            min-width: 200px;
+        }
+        td {
+            padding: 7px;
+        }
+        caption {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="get" action="">
+        <input type="text" name="name" placeholder="Поиск по названию">
+        <input type="submit" value="Искать"><br>
+    </form>
+
+    <table>
+    <caption>СЕРИИ</caption>
+        {% for object in object_list %}
+            <tr>
+                <td>
+                    <a href="{% url 'seria-detail-view' object.pk %}">
+                    {{ object.name }} </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

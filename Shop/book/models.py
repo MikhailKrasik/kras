@@ -4,8 +4,8 @@ from django.db import models
 class Book(models.Model):
     name = models.CharField(
         'Название книги',
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
         max_length=200)
 
     price = models.DecimalField(
@@ -29,6 +29,7 @@ class Book(models.Model):
 
     seria = models.ManyToManyField(
         'catalog.Seria',
+        related_name='books',
         verbose_name='Серия')
 
     genre = models.ManyToManyField(
@@ -47,7 +48,7 @@ class Book(models.Model):
        'Рейтинг',
        choices=list(zip(range(1, 11),
        range(1, 11))), 
-       unique=True)
+       unique=False)
 
     created_date = models.DateTimeField(
         'Дата создания',
@@ -91,8 +92,6 @@ class Book(models.Model):
         choices=list(zip(range(1, 19),
         range(1, 19))),
         null=True)
-
-
 
     def __str__(self):
         return self.name
