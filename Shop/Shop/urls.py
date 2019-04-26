@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 from catalog.views import *
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/catalogs',Catalogs.as_view()),
@@ -29,5 +28,13 @@ urlpatterns = [
     path('catalog/genre/', GenreList.as_view(), name='genre-list-view'),
     path('catalog/seria/', SeriaList.as_view(), name='seria-list-view'),
     path('catalog/genre-create/', GenreCreate.as_view()),
-    path('catalog/publishinghouse/', PublishingHouseList.as_view(),name='publishinghouse-list-view')
+    path('catalog/publishinghouse/', PublishingHouseList.as_view(),name='publishinghouse-list-view'),
+    path('catalog/author-create/', AuthorCreate.as_view(), name='author-create-view'),
+    path('catalog/genre-create/', GenreCreate.as_view(), name='genre-create-view'),
+    path('catalog/seria-create/', SeriaCreate.as_view(), name='seria-create-view'),
+    path('catalog/publish-create/', PublishingHouseCreate.as_view(), name='publishinghouse-create-view'),
+    path('catalog/author-update/<int:pk>', AuthorUpdate.as_view(), name='author-update-view'),
+    path('catalog/genre-update/<int:pk>', GenreUpdate.as_view(), name='genre-update-view'),
+    path('catalog/seria-update/<int:pk>', SeriaUpdate.as_view(), name='seria-update-view'),
+    path('catalog/publishinghouse-update/<int:pk>', PublishingHouseUpdate.as_view(), name='publishinghouse-update-view'),
 ]
